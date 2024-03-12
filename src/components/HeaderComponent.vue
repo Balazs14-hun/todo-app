@@ -2,6 +2,6 @@
 
 <template>
   <div class="flex justify-center">
-    <h2>Header</h2>
+    <h1 class="m-7 font-semibold text-7xl">To do list</h1>
   </div>
 </template>
