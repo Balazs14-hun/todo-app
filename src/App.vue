@@ -3,5 +3,7 @@ import HeaderComponent from './components/HeaderComponent.vue'
 </script>
 
 <template>
-  <HeaderComponent />
+  <div class="flex flex-col justify-center content-center mx-auto max-w-screen-sm">
+    <HeaderComponent />
+  </div>
 </template>
