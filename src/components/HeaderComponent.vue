@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row items-center justify-between">
+  <div class="flex items-center justify-between">
     <h1 class="text-7xl font-semibold">To do list</h1>
     <PlusCircleIcon
       class="h-14 w-14 cursor-pointer text-green-400"

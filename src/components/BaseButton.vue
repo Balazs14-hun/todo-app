@@ -2,11 +2,12 @@
   <button
     :disabled
     :class="buttonClass"
-    @click="$emit('clickEvent')"
+    @click="onClick"
   >
     {{ label }}
   </button>
 </template>
+
 <script setup lang="ts">
 interface Props {
   label?: string
@@ -16,11 +17,12 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   label: 'BaseButton',
-  disabled: false,
   buttonClass: 'rounded-lg border-2 px-4 py-2'
 })
 
-defineEmits<{
-  (e: 'clickEvent'): void
-}>()
+const emit = defineEmits(['clickEvent'])
+
+function onClick() {
+  emit('clickEvent')
+}
 </script>
