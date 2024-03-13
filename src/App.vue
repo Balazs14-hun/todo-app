@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center pt-5">
     <HeaderComponent @create-todo="createTodo" />
     <TodoList v-if="todos.length" />
     <BaseNoTodo v-else />

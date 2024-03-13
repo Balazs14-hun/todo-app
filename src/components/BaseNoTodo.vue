@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col items-center pt-10">
     <img
-      class="h-80 w-80"
+      class="size-64 sm:size-80"
       src="@/assets/svg/no-todo.svg"
     />
-    <p class="pt-5 text-4xl font-semibold text-slate-400">You have no todos yet</p>
+    <p class="pt-5 text-xl font-semibold text-slate-500 sm:text-4xl">You have no todos yet</p>
   </div>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
-  <div class="flex items-center space-x-10 sm:space-x-28 md:space-x-40 lg:space-x-56">
-    <h1 class="text-7xl font-semibold">To do list</h1>
+  <div class="flex items-center space-x-28 sm:space-x-48">
+    <h1 class="text-3xl font-bold sm:text-6xl">To do list</h1>
     <PlusCircleIcon
-      class="h-14 w-14 cursor-pointer text-green-400"
+      class="size-10 cursor-pointer text-green-400 sm:size-14"
       @click="createTodo"
     />
   </div>
