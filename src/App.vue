@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center content-center mx-auto max-w-screen-sm">
+  <div class="mx-auto flex max-w-screen-sm flex-col">
     <HeaderComponent />
   </div>
 </template>
