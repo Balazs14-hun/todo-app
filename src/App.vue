@@ -21,24 +21,9 @@ const todos = ref<Todo[]>([])
 function createTodo() {
   todos.value.unshift({
     id: todos.value.length,
-    title: 'Best todo',
-    description:
-      'Do nothing, do nothing, do nothing, do nothing, do nothing, do nothing, do nothing...',
+    title: 'Title',
+    description: 'Description',
     priority: 'Low',
-    isChecked: false
-  })
-  todos.value.unshift({
-    id: todos.value.length,
-    title: 'Best todo',
-    description: 'Do nothing',
-    priority: 'High',
-    isChecked: false
-  })
-  todos.value.unshift({
-    id: todos.value.length,
-    title: 'Best todo',
-    description: 'Do nothing',
-    priority: 'Medium',
     isChecked: false
   })
 }
