@@ -17,7 +17,7 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   label: 'BaseButton',
-  buttonClass: 'rounded-lg border-2 px-4 py-2'
+  buttonClass: 'sm:rounded-xl rounded-lg text-xs sm:text-sm font-bold py-1 sm:px-4 sm:py-2'
 })
 
 const emit = defineEmits(['clickEvent'])
