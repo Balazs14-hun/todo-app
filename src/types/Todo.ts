@@ -1,4 +1,4 @@
-type Priority = 'Low' | 'Medium' | 'High'
+export type Priority = 'Low' | 'Medium' | 'High'
 
 export interface Todo {
   id: number

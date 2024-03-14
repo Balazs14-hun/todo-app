@@ -1,26 +1,24 @@
 <template>
   <div
     v-if="editing"
-    class="grid w-72 grid-flow-row grid-cols-2 gap-6 rounded-lg border-2 border-black p-3 sm:w-[30rem]"
+    class="grid w-72 grid-flow-row grid-cols-5 gap-y-6 rounded-lg border-2 border-black p-3 sm:w-[30rem]"
   >
     <input
+      v-model="model.title"
       type="text"
-      :value="model.title"
-      class="rounded-md border px-1 text-lg font-bold sm:text-xl"
-      :placeholder="model.title"
+      class="col-span-4 mr-2 rounded-md border px-1 text-lg font-bold sm:text-xl"
     />
-    <BasePriority
-      :text="model.priority"
-      :bg-color="backgroundMapper[model.priority]"
+    <BaseSelect
+      v-model="model"
+      class="col-start-5"
     />
-    <span
-      class="textarea col-span-2 text-wrap rounded-md border px-1 text-xs font-semibold text-black sm:text-base"
+    <textarea
+      v-model="model.description"
+      class="textarea col-span-5 resize-y rounded-md border px-1 text-xs font-semibold text-black sm:text-base"
       role="textbox"
       contenteditable
-      :placeholder="model.description"
-      >{{ model.description }}</span
-    >
-    <div class="grid grid-cols-2 gap-2">
+    ></textarea>
+    <div class="col-span-3 grid grid-cols-2 gap-4">
       <BaseButton
         :label="'Save'"
         class="bg-emerald-400 text-white"
@@ -34,10 +32,10 @@
   </div>
   <div
     v-else
-    class="grid w-72 grid-cols-2 gap-y-6 rounded-lg border-2 border-black p-3 sm:w-[30rem]"
+    class="grid w-72 grid-cols-6 gap-y-6 rounded-lg border-2 border-black p-3 sm:w-[30rem]"
   >
     <h1
-      class="text-lg font-bold sm:text-xl"
+      class="col-span-5 break-words text-lg font-bold sm:text-xl"
       @click="setEditMode"
     >
       {{ model.title }}
@@ -45,9 +43,10 @@
     <BasePriority
       :text="model.priority"
       :bg-color="backgroundMapper[model.priority]"
+      @click="setEditMode"
     />
     <p
-      class="w-52 text-xs font-semibold text-slate-400 sm:text-base"
+      class="col-span-5 break-words text-xs font-semibold text-slate-400 sm:text-base"
       @click="setEditMode"
     >
       {{ model.description }}
@@ -60,8 +59,9 @@
 import { ref } from 'vue'
 import BasePriority from '@/components/BasePriority.vue'
 import BaseCheckbox from '@/components/BaseCheckbox.vue'
-import { Todo } from '@/types/Todo'
 import BaseButton from '@/components/BaseButton.vue'
+import BaseSelect from '@/components/BaseSelect.vue'
+import { Todo } from '@/types/Todo'
 
 const model = defineModel<Todo>({ required: true })
 
