@@ -1,45 +1,28 @@
 <template>
   <div class="grid w-72 grid-cols-2 gap-6 rounded-lg border-2 border-black p-3 sm:w-[30rem]">
-    <h1 class="text-lg font-bold sm:text-xl">{{ todo.title }}</h1>
+    <h1 class="text-lg font-bold sm:text-xl">{{ model.title }}</h1>
     <BasePriority
-      v-if="todo.priority === 'High'"
-      :text="todo.priority"
-      :bg-color="'bg-orange-600'"
+      :text="model.priority"
+      :bg-color="backgroundMapper[model.priority]"
     />
-    <BasePriority
-      v-else-if="todo.priority === 'Medium'"
-      :text="todo.priority"
-      :bg-color="'bg-yellow-500'"
-    />
-    <BasePriority
-      v-else
-      :text="todo.priority"
-      :bg-color="'bg-teal-500'"
-    />
-    <p class="text-xs font-semibold text-slate-400 sm:text-base">{{ todo.description }}</p>
-    <label class="relative cursor-pointer place-self-end">
-      <input
-        class="peer sr-only"
-        type="checkbox"
-      />
-      <div
-        class="size-5 rounded-full border-4 border-black peer-checked:border-green-500 sm:size-7"
-      ></div>
-      <CheckIcon
-        class="invisible absolute -top-2 size-6 stroke-green-500 stroke-2 opacity-90 peer-checked:visible sm:size-8"
-      />
-    </label>
+    <p class="text-xs font-semibold text-slate-400 sm:text-base">{{ model.description }}</p>
+    <BaseCheckbox v-model="isChecked" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import BasePriority from '@/components/BasePriority.vue'
-import { CheckIcon } from '@heroicons/vue/20/solid'
-import type Todo from '@/types/Todo'
+import BaseCheckbox from '@/components/BaseCheckbox.vue'
+import { Todo } from '@/types/Todo'
 
-interface Props {
-  todo: Todo
+const model = defineModel<Todo>({ required: true })
+
+const isChecked = ref(false)
+
+const backgroundMapper = {
+  High: 'bg-orange-600',
+  Medium: 'bg-yellow-500',
+  Low: 'bg-teal-500'
 }
-
-defineProps<Props>()
 </script>

@@ -1,6 +1,7 @@
 <template>
   <p
-    :class="`${bgColor} w-fit place-self-end rounded-2xl px-4 text-sm text-white sm:px-5 sm:text-base`"
+    class="w-fit place-self-end rounded-2xl px-4 text-xs text-white sm:px-5 sm:text-base"
+    :class="bgColor"
   >
     {{ text }}
   </p>
