@@ -1,7 +1,10 @@
 <template>
   <div class="flex flex-col items-center pt-5">
     <HeaderComponent @create-todo="createTodo" />
-    <TodoList v-if="todos.length" />
+    <TodoList
+      v-if="todos.length"
+      :todos="todos"
+    />
     <BaseNoTodo v-else />
   </div>
 </template>
@@ -17,10 +20,25 @@ const todos = ref<Todo[]>([])
 
 function createTodo() {
   todos.value.unshift({
-    id: 1,
+    id: Math.random(),
+    title: 'Best todo',
+    description:
+      'Do nothing, do nothing, do nothing, do nothing, do nothing, do nothing, do nothing...',
+    priority: 'Low',
+    done: false
+  })
+  todos.value.unshift({
+    id: Math.random(),
     title: 'Best todo',
     description: 'Do nothing',
-    priority: 'high',
+    priority: 'High',
+    done: false
+  })
+  todos.value.unshift({
+    id: Math.random(),
+    title: 'Best todo',
+    description: 'Do nothing',
+    priority: 'Medium',
     done: false
   })
 }

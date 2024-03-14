@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center pt-10">
+  <div class="flex flex-col pt-10">
     <img
       class="size-64 sm:size-80"
       src="@/assets/svg/no-todo.svg"
