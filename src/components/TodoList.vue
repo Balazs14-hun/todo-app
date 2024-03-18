@@ -3,7 +3,6 @@
     v-for="(todo, index) in model"
     :key="todo.id"
     v-model="model[index]"
-    class="mt-7 shadow-lg hover:shadow-none"
   />
 </template>
 

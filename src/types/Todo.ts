@@ -6,4 +6,5 @@ export interface Todo {
   description: string
   priority: Priority
   isChecked: boolean
+  createdAt: string
 }

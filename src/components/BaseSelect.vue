@@ -1,22 +1,27 @@
 <template>
-  <div>
+  <div class="absolute right-2 top-3 z-10">
     <div
-      class="place-self-center rounded-2xl border-2 border-black text-xs font-bold hover:bg-slate-100 sm:px-5 sm:text-sm"
+      class="mb-2 cursor-pointer rounded-xl border-2 border-black font-bold sm:pe-3 sm:ps-5 sm:text-sm"
+      :class="isSelectOpen ? 'bg-white' : backgroundMapper[model.priority] + ' border-0 text-white'"
       @click="openSelect"
     >
-      <div>
-        {{ selectedOption }}
+      <div class="flex items-center">
+        {{ model.priority }}
+        <ChevronDownIcon
+          class="ms-4 size-3 stroke-black stroke-1"
+          :class="{ 'stroke-white': !isSelectOpen }"
+        />
       </div>
     </div>
     <div
-      v-if="isOpen"
-      class="place-self-center rounded-2xl border-2 border-t-2 border-black px-4 text-xs font-bold sm:px-5 sm:text-sm"
+      v-if="isSelectOpen"
+      class="cursor-pointer rounded-xl border-2 border-black font-bold sm:text-sm"
     >
-      <ul class="flex flex-col divide-y">
+      <ul class="flex flex-col py-1">
         <li
           v-for="(priority, index) in backgroundMapper"
           :key="priority"
-          class="hover:bg-slate-100"
+          class="rounded-xl bg-white ps-3 transition hover:bg-slate-100"
           @click="selectElement(index)"
         >
           {{ index }}
@@ -29,11 +34,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Todo, Priority } from '@/types/Todo'
+import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 
 const model = defineModel<Todo>({ required: true })
 
-const selectedOption = ref(model.value.priority)
-const isOpen = ref(false)
+const isSelectOpen = ref(false)
 
 const backgroundMapper = {
   High: 'bg-orange-600',
@@ -41,11 +46,13 @@ const backgroundMapper = {
   Low: 'bg-cyan-400'
 }
 
+const emit = defineEmits(['openSelect'])
+
 function openSelect() {
-  isOpen.value = !isOpen.value
+  isSelectOpen.value = !isSelectOpen.value
+  emit('openSelect', isSelectOpen.value)
 }
 function selectElement(element: Priority) {
-  selectedOption.value = element
   model.value.priority = element
   openSelect()
 }

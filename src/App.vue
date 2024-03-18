@@ -15,6 +15,7 @@ import HeaderComponent from '@/components/HeaderComponent.vue'
 import BaseNoTodo from '@/components/BaseNoTodo.vue'
 import { Todo } from '@/types/Todo'
 import TodoList from '@/components/TodoList.vue'
+import moment from 'moment'
 
 const todos = ref<Todo[]>([])
 
@@ -24,7 +25,8 @@ function createTodo() {
     title: 'Title',
     description: 'Description',
     priority: 'Low',
-    isChecked: false
+    isChecked: false,
+    createdAt: moment().format('DD.MM.YY')
   })
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative cursor-pointer place-self-end"
+    class="relative cursor-pointer"
     @click="checkCheckbox"
   >
     <input
@@ -9,10 +9,10 @@
       type="checkbox"
     />
     <div
-      class="size-5 rounded-full border-4 border-black transition peer-checked:border-green-500 peer-checked:opacity-70 sm:size-7"
+      class="size-6 rounded-full border-4 border-black transition peer-checked:border-green-500 peer-checked:opacity-70 sm:size-7"
     ></div>
     <CheckIcon
-      class="invisible absolute -top-2 size-8 stroke-green-500 stroke-2 opacity-90 transition-all peer-checked:visible peer-checked:size-6 sm:size-10 peer-checked:sm:size-8"
+      class="invisible absolute -top-2 size-8 stroke-green-500 stroke-2 opacity-90 transition-all peer-checked:visible peer-checked:size-7 sm:size-10 peer-checked:sm:size-8"
     />
   </div>
 </template>
